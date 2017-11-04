@@ -1,0 +1,41 @@
+/** Stylus Styles */
+@import '../../node_modules/vuetify/src/stylus/main'
+
+.c-app
+	padding-top 70px
+.c-avatar-icon
+	cursor pointer
+	.badge__badge
+		bottom 0 !important
+
+.c-social
+	text-decoration none
+	color inherit
+
+.c-footer
+	@media (max-width 600px)
+		&__c-social
+			.c-social
+				&__item
+					&.is
+						&_3
+						&_4
+						&_5
+							display none
+
+.c-skill-img
+	display block
+	border-radius 100%
+	width 100px
+	height 100px
+	margin-right auto
+	margin-left auto
+	box-shadow 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px rgba(0,0,0,.14), 0 1px 18px rgba(0,0,0,.12)
+	@media (max-width 600)
+		width 75px
+		height 75px
+
+.VueCarousel-wrapper
+	border-radius 200px
+	padding-top 20px
+	padding-bottom 20px
