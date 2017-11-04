@@ -12,6 +12,18 @@
 	text-decoration none
 	color inherit
 
+.c-link
+	text-decoration none
+	color inherit
+	&.is
+		&_block
+			display block
+
+.c-icon
+	&.is
+		&_small
+			font-size 1.5rem
+
 .c-footer
 	@media (max-width 600px)
 		&__c-social
@@ -22,6 +34,11 @@
 						&_4
 						&_5
 							display none
+
+.c-description
+	overflow hidden
+	font-size 14px !important
+	height 63px !important
 
 .c-skill-img
 	display block

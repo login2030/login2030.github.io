@@ -3,6 +3,7 @@ import app from './app.vue';
 import Vuetify from 'vuetify';
 // import VueRouter from 'vue-router';
 import VueCarousel from 'vue-carousel';
+import $ from 'jquery';
 import './stylus/main.styl';
 
 // Vue.use(VueRouter);

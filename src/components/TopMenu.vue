@@ -5,7 +5,7 @@
 				<v-icon color="green">fiber_manual_record</v-icon>
 			</span>
 			<v-avatar @click="openSocialPopup" size="50px">
-				<img src="/images/avatar-fake.jpg" alt="">
+				<img src="/images/avatar-fake-2.jpg" alt="">
 			</v-avatar>
 		</v-badge>
 		<v-spacer></v-spacer>
