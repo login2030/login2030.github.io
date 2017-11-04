@@ -15,13 +15,14 @@
 			<a v-if="dataLink" :href="dataLink" class="c-link is_block" target="_blank">
     			<v-btn flat tag="div" :color="themeBtn">Посмотреть сайт <v-icon right :color="themeIcon" class="c-icon is_small">open_in_new</v-icon></v-btn>
 			</a>
-			<div v-else>
+			<div v-else @click.stop="openPopupScript($event, dataComponent, dataHeader)">
     			<v-btn flat :color="themeBtn">Посмотреть <v-icon right :color="themeIcon" class="c-icon is_small">call_made</v-icon></v-btn>
 			</div>
     	</v-card-actions>
     </v-card>
 </template>
 <script>
+import bus from '../bus';
 export default {
 	props: {
 		dataHeader: {
@@ -38,12 +39,20 @@ export default {
 		},
 		dataMobile: {
 			required: false
+		},
+		dataComponent: {
+			required: false
 		}
 	},
 	data() {
 		return {
 			themeBtn: 'green darken-2 white--text',
 			themeIcon: 'green darken-2'
+		}
+	},
+	methods: {
+		openPopupScript(e, comp, header) {
+			bus.$emit('openPopupScript', comp, header);
 		}
 	}
 }

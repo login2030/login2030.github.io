@@ -49,7 +49,7 @@ export default [
 		link: 'http://m.riofitness.ru/'
 	},
 	{
-		img: 'Diloreto',
+		img: 'diloreto',
 		header: 'Diloreto',
 		desc: 'Сайт дизайна интерьера и ремонта под ключ "Diloreto" г. Новый Уренгой',
 		link: 'http://diloreto.ru/'
