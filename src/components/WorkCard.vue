@@ -12,10 +12,13 @@
         	</div>
     	</v-card-title>
     	<v-card-actions>
+			<a v-if="dataStatic" :href="dataStatic" class="c-link is_block" target="_blank">
+    			<v-btn flat tag="div" :color="themeBtn">Посмотреть <v-icon right :color="themeIcon" class="c-icon is_small">open_in_new</v-icon></v-btn>
+			</a>
 			<a v-if="dataLink" :href="dataLink" class="c-link is_block" target="_blank">
     			<v-btn flat tag="div" :color="themeBtn">Посмотреть сайт <v-icon right :color="themeIcon" class="c-icon is_small">open_in_new</v-icon></v-btn>
 			</a>
-			<div v-else @click.stop="openPopupScript($event, dataComponent, dataHeader)">
+			<div v-if="dataComponent" @click.stop="openPopupScript($event, dataComponent, dataHeader)">
     			<v-btn flat :color="themeBtn">Посмотреть <v-icon right :color="themeIcon" class="c-icon is_small">call_made</v-icon></v-btn>
 			</div>
     	</v-card-actions>
@@ -41,6 +44,9 @@ export default {
 			required: false
 		},
 		dataComponent: {
+			required: false
+		},
+		dataStatic: {
 			required: false
 		}
 	},

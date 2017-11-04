@@ -9,7 +9,8 @@
 							:data-image="'/images/scripts/'+script.img+'.jpg'"
 							:data-header="script.header"
 							:data-desc="script.desc"
-							:data-component="script.component">
+							:data-component="script.component"
+							:data-static="script.staticPage">
 						</work-card>
 				    </v-flex>
 				</v-layout>
@@ -25,7 +26,7 @@
 						<v-toolbar-title>{{headerPopup}}</v-toolbar-title>
 					</v-toolbar>
 					<v-card-text>
-						<riofitness-svg-map v-if="component === 'RiofitnessSvgMap'"></riofitness-svg-map>
+						<!-- <riofitness-svg-map v-if="component === 'RiofitnessSvgMap'"></riofitness-svg-map> -->
 					</v-card-text>
 				</v-card>
 			</v-dialog>
@@ -36,12 +37,10 @@
 import bus from '../bus';
 import scripts from '../data/scripts';
 import WorkCard from './WorkCard.vue';
-import RiofitnessSvgMap from './scripts/RiofitnessSvgMap.vue';
 
 export default {
 	components: {
 		WorkCard,
-		RiofitnessSvgMap
 	},
 	data() {
 		return {
