@@ -39,6 +39,7 @@
 										<span>Отзывы</span>
 									</v-tooltip>
 								</a>
+								<rabbits data-title="Основная работа"></rabbits>
 							</div>
 						</small>
 					</blockquote>
@@ -48,6 +49,11 @@
 	</v-container>
 </template>
 <script>
-export default {}
+import Rabbits from './RabbitsLogo.vue';
+export default {
+	components: {
+		Rabbits
+	}
+}
 </script>
 
