@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=600">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Калькулятор услуг полиграфии для рекламного агентства "Акцент" г. Уфа</title>
+<style>
+	.ms-parent{display:inline-block;position:relative;vertical-align:middle}.ms-choice{display:block;width:100%;height:26px;padding:0;overflow:hidden;cursor:pointer;border:1px solid #aaa;text-align:left;white-space:nowrap;line-height:26px;color:#444;text-decoration:none;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;background-color:#fff}.ms-choice.disabled{background-color:#f4f4f4;background-image:none;border:1px solid #ddd;cursor:default}.ms-choice>span{position:absolute;top:0;left:0;right:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;padding-left:8px}.ms-choice>span.placeholder{color:#999}.ms-choice>div{position:absolute;top:0;right:0;width:20px;height:25px;background:url(multiple-select.png) left top no-repeat}.ms-choice>div.open{background:url(multiple-select.png) right top no-repeat}.ms-drop{width:100%;overflow:hidden;display:none;margin-top:-1px;padding:0;position:absolute;z-index:1000;background:#fff;color:#000;border:1px solid #aaa;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.ms-drop.bottom{top:100%;-webkit-box-shadow:0 4px 5px rgba(0,0,0,.15);-moz-box-shadow:0 4px 5px rgba(0,0,0,.15);box-shadow:0 4px 5px rgba(0,0,0,.15)}.ms-drop.top{bottom:100%;-webkit-box-shadow:0 -4px 5px rgba(0,0,0,.15);-moz-box-shadow:0 -4px 5px rgba(0,0,0,.15);box-shadow:0 -4px 5px rgba(0,0,0,.15)}.ms-search{display:inline-block;margin:0;min-height:26px;padding:4px;position:relative;white-space:nowrap;width:100%;z-index:10000}.ms-search input{width:100%;height:auto!important;min-height:24px;padding:0 20px 0 5px;margin:0;outline:0;font-family:sans-serif;font-size:1em;border:1px solid #aaa;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;background:#fff url(multiple-select.png) no-repeat 100% -22px;background:url(multiple-select.png) no-repeat 100% -22px,-webkit-gradient(linear,left bottom,left top,color-stop(.85,#fff),color-stop(.99,#eee));background:url(multiple-select.png) no-repeat 100% -22px,-webkit-linear-gradient(center bottom,#fff 85%,#eee 99%);background:url(multiple-select.png) no-repeat 100% -22px,-moz-linear-gradient(center bottom,#fff 85%,#eee 99%);background:url(multiple-select.png) no-repeat 100% -22px,-o-linear-gradient(bottom,#fff 85%,#eee 99%);background:url(multiple-select.png) no-repeat 100% -22px,-ms-linear-gradient(top,#fff 85%,#eee 99%);background:url(multiple-select.png) no-repeat 100% -22px,linear-gradient(top,#fff 85%,#eee 99%)}.ms-search,.ms-search input{-webkit-box-sizing:border-box;-khtml-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}.ms-drop ul{overflow:auto;margin:0;padding:5px 8px}.ms-drop ul>li{list-style:none;display:list-item;background-image:none;position:static}.ms-drop ul>li .disabled{opacity:.35;filter:Alpha(Opacity=35)}.ms-drop ul>li.multiple{display:block;float:left}.ms-drop ul>li.group{clear:both}.ms-drop ul>li.multiple label{width:100%;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ms-drop ul>li label{font-weight:400;display:block;white-space:nowrap}.ms-drop ul>li label.optgroup{font-weight:700}.ms-drop input[type=checkbox]{vertical-align:middle}.ms-drop .ms-no-results{display:none}
+
+.selectric-wrapper {
+    position: relative;
+    cursor: pointer
+}
+
+.selectric-responsive {
+    width: 100%
+}
+
+.selectric {
+    border: 2px solid #ddd;
+    background: #fff;
+    position: relative;
+}
+
+.selectric .label {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 36px 0 10px;
+    font-size: 12px;
+    line-height: 36px;
+    color: #000;
+    height: 36px;
+    user-select: none
+}
+
+.selectric .button {
+    display: block;
+    position: absolute;
+    background: #fff url("arrow_down_select.svg") center center no-repeat;
+    right: 0;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    color: #fff;
+    text-align: center
+}
+
+.selectric-hover .selectric {
+    border-color: #c7c7c7;
+}
+
+.selectric-hover .selectric .button {
+    color: #e6e6e6;
+}
+
+.selectric-hover .selectric .button:after {
+    border-top-color: #e6e6e6
+}
+
+.selectric-open {
+    z-index: 9999;
+}
+
+.selectric-open .selectric {
+    border-color: #c7c7c7
+}
+
+.selectric-open .selectric-items {
+    display: block
+}
+
+.selectric-disabled {
+    opacity: .5;
+    cursor: default;
+    user-select: none
+}
+
+.selectric-hide-select {
+    position: relative;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+}
+
+.selectric-hide-select select {
+    position: absolute;
+    left: -100%;
+    display: none
+}
+
+.selectric-input {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+    outline: none !important;
+    border: none !important;
+    *font: 0/0 a !important;
+    background: none !important
+}
+
+.selectric-temp-show {
+    position: absolute !important;
+    visibility: hidden !important;
+    display: block !important
+}
+
+.selectric-items {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #c7c7c7;
+    z-index: -1;
+    box-shadow: 0 0 10px -6px;
+}
+
+.selectric-items .selectric-scroll {
+    height: 100%;
+    overflow: auto
+}
+
+.selectric-above .selectric-items {
+    top: auto;
+    bottom: 100%
+}
+
+.selectric-items ul,.selectric-items li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    line-height: 20px;
+    min-height: 20px
+}
+
+.selectric-items li {
+    display: block;
+    padding: 10px;
+    color: #666;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.selectric-items li.selected {
+    background: #efefef;
+    color: #444
+}
+
+.selectric-items li:hover {
+    background: #f0f0f0;
+    color: #444
+}
+
+.selectric-items .disabled {
+    opacity: .5;
+    cursor: default !important;
+    background: none !important;
+    color: #666 !important;
+    user-select: none
+}
+
+.selectric-items .selectric-group .selectric-group-label {
+    font-weight: bold;
+    padding-left: 10px;
+    cursor: default;
+    user-select: none;
+    background: none;
+    color: #444
+}
+
+.selectric-items .selectric-group.disabled li {
+    opacity: 1
+}
+
+.selectric-items .selectric-group li {
+    padding-left: 25px
+}
+
+* {
+	margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    line-height: 1.3
+}
+
+#polygraphy_calc {
+    position: relative;
+    width: 530px;
+    background: #fff;
+    padding: 40px 60px 160px;
+    float: right;
+}
+
+#polygraphy_calc *::selection {
+    background: rgba(0,0,0,0)
+}
+
+#polygraphy_calc *::-moz-selection {
+    background: rgba(0,0,0,0)
+}
+
+#polygraphy_calc .red {
+    color: #f00
+}
+
+#polygraphy_calc .line {
+    position: absolute;
+    background: #902e99;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%
+}
+
+#polygraphy_calc .polygraphy_calc_container {
+    position: relative;
+    height: 100%;
+}
+
+#polygraphy_calc .polygraphy_calc_container[data-active-calc="leaflet"] {
+    height: 180px
+}
+
+#polygraphy_calc .polygraphy_calc_container[data-active-calc="card"] {
+    height: 180px
+}
+
+#polygraphy_calc .polygraphy_calc_container[data-active-calc="calendar"] {
+    height: 180px
+}
+
+#polygraphy_calc .polygraphy_calc_container[data-active-calc="booklet"] {
+    height: 180px
+}
+
+#polygraphy_calc .polygraphy_calc_container[data-active-calc="letter"] {
+    height: 180px
+}
+
+#polygraphy_calc .input_calc,#polygraphy_calc .selectric {
+    border: 2px solid #999;
+    height: 51px;
+    border-radius: 3px;
+    width: 100%
+}
+
+#polygraphy_calc .input_calc::selection {
+    background: #f60
+}
+
+#polygraphy_calc .input_calc::-moz-selection {
+    background: #f60
+}
+
+#polygraphy_calc input {
+    font-family: 'PTSansBold';
+    font-weight: normal;
+    padding-left: 25px
+}
+
+#polygraphy_calc .selectric .label {
+    line-height: 48px;
+    height: 46px;
+    font-size: 16px;
+    font-family: 'PTSansBold';
+    font-weight: normal;
+    margin-left: 25px
+}
+
+#polygraphy_calc .selectric .button {
+    height: 46px
+}
+
+#polygraphy_calc .selectric-items li {
+    padding-left: 25px;
+    font-size: 14px
+}
+
+#polygraphy_calc .item {
+    position: absolute;
+}
+
+#polygraphy_calc .item .label {
+    margin-bottom: 5px
+}
+
+#polygraphy_calc .item_big {
+    width: 257px
+}
+
+#polygraphy_calc .item_less {
+    width: 107px
+}
+
+#polygraphy_calc .item_main {
+    top: 0;
+    left: 0
+}
+
+#polygraphy_calc .bottom_text {
+    position: absolute;
+    bottom: -130px;
+    left: 0;
+    font-size: 15px;
+    line-height: 1.5
+}
+
+#polygraphy_calc .active {
+    display: block !important
+}
+
+#polygraphy_calc .leaflet {
+    display: none;
+    height: 180px;
+}
+
+#polygraphy_calc .leaflet .item_1 {
+    top: 0;
+    right: 0
+}
+
+#polygraphy_calc .leaflet .item_2 {
+    top: 104px;
+    left: 0
+}
+
+#polygraphy_calc .leaflet .item_3 {
+    top: 104px;
+    left: 148px
+}
+
+#polygraphy_calc .leaflet .item_4 {
+    top: 104px;
+    right: 0
+}
+
+#polygraphy_calc .card {
+    display: none;
+    height: 180px;
+}
+
+#polygraphy_calc .card .item_1 {
+    top: 0;
+    right: 0
+}
+
+#polygraphy_calc .card .item_2 {
+    top: 104px;
+    left: 0
+}
+
+#polygraphy_calc .calendar {
+    display: none;
+    height: 180px;
+}
+
+#polygraphy_calc .calendar .item_1 {
+    top: 0;
+    right: 0
+}
+
+#polygraphy_calc .calendar .item_2 {
+    top: 104px;
+    left: 0
+}
+
+#polygraphy_calc .booklet {
+    display: none;
+    height: 180px;
+}
+
+#polygraphy_calc .booklet .item_1 {
+    top: 0;
+    right: 0
+}
+
+#polygraphy_calc .booklet .item_2 {
+    top: 104px;
+    left: 0
+}
+
+#polygraphy_calc .booklet .item_3 {
+    top: 104px;
+    left: 148px
+}
+
+#polygraphy_calc .booklet .item_4 {
+    top: 104px;
+    right: 0
+}
+
+#polygraphy_calc .letter {
+    display: none;
+    height: 180px;
+}
+
+#polygraphy_calc .letter .item_1 {
+    top: 0;
+    right: 0
+}
+
+#polygraphy_calc .letter .item_2 {
+    top: 104px;
+    left: 0
+}
+
+#polygraphy_calc .footer {
+    position: absolute;
+    bottom: 87px;
+    left: 0;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 100%;
+    height: 51px;
+}
+
+#polygraphy_calc .footer .res {
+    font-size: 28px;
+    font-family: 'PTSansBold';
+    font-weight: normal;
+    line-height: 51px;
+    float: left
+}
+
+#polygraphy_calc .footer button {
+    position: relative;
+    float: right;
+    height: 51px;
+    width: 188px;
+    text-align: left;
+    padding-left: 90px;
+    border-radius: 25px;
+    background-color: #902e99;
+    color: #fff;
+    font-family: 'PTSansBold';
+    font-weight: normal;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+#polygraphy_calc .footer button .ico {
+    display: block;
+    position: absolute;
+    background: url("arrow_left.svg") center center no-repeat;
+    width: 15px;
+    height: 13px;
+    top: 50%;
+    left: 48px;
+    margin-top: -6px;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    transition: all .5s ease
+}
+
+#polygraphy_calc .footer button:hover {
+    padding-left: 60px;
+}
+
+#polygraphy_calc .footer button:hover .ico {
+    left: 20px
+}
+
+.c-polygrafy-header {
+	position: relative;
+	padding-top: 75px;
+	padding-bottom: 20px;
+}
+.c-polygrafy-header__img {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.c-polygrafy-header #polygraphy_calc {
+	float: none;
+	margin: auto;
+	padding-bottom: 95px;
+	-webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow:    2px 2px 3px 0px rgba(0, 0, 0, 0.3);
+	box-shadow:         2px 2px 3px 0px rgba(0, 0, 0, 0.3);
+}
+.c-polygrafy-header #polygraphy_calc .footer {
+	bottom: 25px;
+}
+
+.c-polygrafy-header #polygraphy_calc .footer-after {
+	display: block;
+	width: 100%;
+}
+
+.c-calc-header {
+	text-align: center;
+	margin-bottom: 20px;
+}
+.c-calc-header__h {
+	font-family: 'PTSansBold';
+	font-size: 35px;
+	color: #FF6600;
+}
+.c-calc-header__sub-h {
+	font-family: 'PTSansBold';
+	font-size: 16px;
+	color: #FF6600;
+	text-decoration: underline;
+	padding-bottom: 3px;
+}
+.c-calc-header__text {
+	font-size: 15px;
+}
+#calc_button {
+	cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+	<div class="c-polygrafy-header">
+		<div class="wrapper pol-calc-wrapper">
+			<div id="polygraphy_calc" class="clearfix">
+				<div class="c-calc-header">
+					<h1 class="c-calc-header__h">Полиграфия в Уфе</h1>
+					<h2 class="c-calc-header__sub-h">Качественная поиграфия для компаний</h2>
+					<p class="c-calc-header__text">Узнайте стоимость прямо сейчас!</p>
+				</div>
+				<div class="line"></div>
+				<div class="global_shadow_bottom"></div>
+				<div class="polygraphy_calc_container" data-active-calc="leaflet">
+					<div class="item item_big item_main">
+						<p class="label">Мне нужно:</p>
+						<select id="select_poly_calc">
+							<option value="leaflet">Листовки</option>
+							<option value="card">Визитки</option>
+							<option value="calendar">Карманные календари</option>
+							<option value="booklet">Евробуклет А4, 2 фальца</option>
+							<option value="letter">Благодарственное письмо</option>
+						</select>
+					</div>
+					<div class="leaflet calc_type active" data-percent="230" data-percent2="230">
+						<div class="item item_1 item_less">
+							<p class="label">Печать</p>
+							<select class="selectric_select print">
+								<option value="3.00">Односторонняя</option>
+								<option value="6.00">Двухсторонняя</option>
+							</select>
+						</div>
+						<div class="item item_2 item_less">
+							<p class="label">Фомата:</p>
+							<select class="selectric_select format">
+								<option value="2">А-4</option>
+								<option value="1">А-3</option>
+								<option value="4">А-5</option>
+								<option value="8">А-6</option>
+								<option value="16">А-7</option>
+							</select>
+						</div>
+						<div class="item item_3 item_less">
+							<p class="label">Бумага:</p>
+							<select class="selectric_select paper">
+								<option value="2.13">115 гр.</option>
+								<option value="2.41">130 гр.</option>
+								<option value="2.78">150 гр.</option>
+								<option value="3.15">170 гр.</option>
+								<option value="3.81">200 гр.</option>
+								<option value="4.64">250 гр.</option>
+								<option value="4.67">270 гр.</option>
+								<option value="5.18">300 гр.</option>
+								<option value="9.00">самокл.</option>
+							</select>
+						</div>
+						<div class="item item_4 item_less">
+							<p class="label">В кол-ве:</p>
+							<input type="text" class="input_calc" value="1">
+						</div>
+					</div>
+					<div class="card calc_type" data-percent="204" data-percent2="204">
+						<div class="item item_1 item_less">
+							<p class="label">Печать</p>
+							<select class="selectric_select print">
+								<option value="3.00">Односторонняя</option>
+								<option value="6.00">Двухсторонняя</option>
+							</select>
+						</div>
+						<div class="item item_2 item_less">
+							<p class="label">В кол-ве:</p>
+							<input type="text" class="input_calc" value="1">
+						</div>
+					</div>
+					<div class="calendar calc_type" data-percent="200" data-percent2="200">
+						<div class="item item_1 item_less">
+							<p class="label">Ламинация</p>
+							<select class="selectric_select laminate">
+								<option value="21.35">125 мкр.</option>
+								<option value="4.00">30 мкр.</option>
+								<option value="13.40">75 мкр.</option>
+							</select>
+						</div>
+						<div class="item item_2 item_less">
+							<p class="label">В кол-ве:</p>
+							<input type="text" class="input_calc" value="1">
+						</div>
+					</div>
+					<div class="booklet calc_type" data-percent="200" data-percent2="200">
+						<div class="item item_1 item_less">
+							<p class="label">Бумага:</p>
+							<select class="selectric_select paper">
+								<option value="2.13">115 гр.</option>
+								<option value="2.41">130 гр.</option>
+								<option value="2.78">150 гр.</option>
+								<option value="3.15">170 гр.</option>
+								<option value="3.81">200 гр.</option>
+								<option value="4.64">250 гр.</option>
+								<option value="4.67">270 гр.</option>
+								<option value="5.18">300 гр.</option>
+								<option value="9.00">самокл.</option>
+							</select>
+						</div>
+						<div class="item item_2 item_less">
+							<p class="label">В кол-ве:</p>
+							<input type="text" class="input_calc" value="1">
+						</div>
+					</div>
+					<div class="letter calc_type" data-percent="200" data-percent2="200">
+						<div class="item item_1 item_less">
+							<p class="label">Бумага:</p>
+							<select class="selectric_select paper">
+								<option value="2.13">115 гр.</option>
+								<option value="2.41">130 гр.</option>
+								<option value="2.78">150 гр.</option>
+								<option value="3.15">170 гр.</option>
+								<option value="3.81">200 гр.</option>
+								<option value="4.64">250 гр.</option>
+								<option value="4.67">270 гр.</option>
+								<option value="5.18">300 гр.</option>
+								<option value="9.00">самокл.</option>
+							</select>
+						</div>
+						<div class="item item_2 item_less">
+							<p class="label">В кол-ве:</p>
+							<input type="text" class="input_calc" value="1">
+						</div>
+					</div>
+				</div>
+				<div class="footer clearfix">
+					<button id="calc_button" data-active-calc="leaflet">
+						<span class="ico"></span>Расчитать</button>
+					<p id="res_calc" class="res"></p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-selectric@0.1.2/src/jquery.selectric.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/multiple-select@1.2.1/multiple-select.min.js"></script>
+<script>
+	/* Страница полиграфии */
+var polCalc = $('#polygraphy_calc'),
+	calcWrapper = $(document.querySelector('.polygraphy_calc_container')),
+	calcButton = $('#calc_button'),
+	resCalc = $('#res_calc');
+// Калькулятор
+var selectSet = {
+	arrowButtonMarkup: '<b class="button"></b>',
+	disableOnMobile: false,
+};
+// главный селект в калькуляторе
+$('#select_poly_calc').selectric(selectSet).on('change', function (el) {
+	// Переключение калькуляторов
+	var val = $(this).val(),
+		active = calcWrapper.find('.calc_type.active');
+	calcWrapper.attr('data-active-calc', val);
+	calcButton.attr('data-active-calc', val);
+	if (calcWrapper.find(`.${val}`).hasClass('active')) {
+		return false;
+	}
+	resCalc.text('');
+	active.fadeOut(100, function () {
+		var che = calcWrapper.find(`.${val}`);
+		che.fadeIn(300).addClass('active');
+	}).removeClass('active');
+});
+// остальные селекты
+polCalc.find('.selectric_select').selectric(selectSet);
+
+// Толька цифры в поля
+var inputCalc = calcWrapper.find('.input_calc');
+inputCalc.bind("change keyup input click", function () {
+	if (this.value.match(/[^0-9]/g)) {
+		this.value = this.value.replace(/[^0-9]/g, '');
+	}
+});
+
+// Калькулятр - логика
+calcButton.click(function (e) {
+	var $this = $(this),
+		active = calcWrapper.find('.calc_type.active');
+	var print = parseFloat(active.find('.print').val()),
+		format = parseFloat(active.find('.format').val()),
+		paper = parseFloat(active.find('.paper').val()),
+		laminate = parseFloat(active.find('.laminate').val()),
+		count = parseInt(active.find('.input_calc').val(), 10),
+		percent = parseInt(active.attr('data-percent')),
+		percent2 = parseInt(active.attr('data-percent2')),
+		coefficient = 1.15;
+
+	// Функция изменения процента в зависимости от выбранных параметров
+	var setPercent = function (format, count) {
+		switch (format, count) {
+			case 1, 500 :
+				percent = percent2;
+				break;
+			case 2, 1000 :
+				percent = percent2;
+				break;
+			case 4, 2000 :
+				percent = percent2;
+				break;
+			case 8, 4000 :
+				percent = percent2;
+				break;
+			case 16, 8000 :
+				percent = percent2;
+				break;
+			default:
+				percent = percent;
+				break;
+		}
+	};
+
+	var res;
+
+	// Логика калькуляторов
+	if (active.hasClass('leaflet')) {
+		setPercent(format, count);
+		// Расчет по формуле
+		res = ((paper + print) * coefficient) / format;
+		// Округлили до 10 го порядка
+		res = Math.round(res * 100) / 100;
+		// Умножили на количество
+		res = res * count;
+		// Округлили до 10 го порядка
+		res = Math.round(res * 100) / 100;
+		// Прибавляем процент
+		res = (res / 100) * percent;
+		// Округлили до 10 го порядка
+		res = Math.round(res * 100) / 100;
+	}
+	if (active.hasClass('card')) {
+		paper = 5.18;
+		setPercent(format, count);
+		// По формуле
+		res = ((paper + print) * coefficient) / 24;
+		res = Math.round(res * 100) / 100;
+		// Умножаем на кол-во
+		res = res * count;
+		res = Math.round(res * 100) / 100;
+		// Прибавляем процент
+		res = (res / 100) * percent;
+		res = Math.round(res * 100) / 100;
+	}
+	if (active.hasClass('calendar')) {
+		paper = 5.18;
+		print = 6.00;
+		setPercent(format, count);
+		// По формуле
+		res = ((paper + print + laminate) * coefficient) / 16;
+		res = Math.round(res * 100) / 100;
+		// Умножаем на кол-во
+		res = res * count;
+		res = Math.round(res * 100) / 100;
+		// Прибавляем процент
+		res = (res / 100) * percent;
+		res = Math.round(res * 100) / 100;
+	}
+	if (active.hasClass('booklet')) {
+		format = 2;
+		print = 6.00;
+		setPercent(format, count);
+		// По формуле
+		res = ((paper + print) * coefficient) / format;
+		// Округлили до 10 го порядка
+		res = Math.round(res * 100) / 100;
+		// Умножили на количество
+		res = res * count;
+		// Округлили до 10 го порядка
+		res = Math.round(res * 100) / 100;
+		// Прибавляем процент
+		res = (res / 100) * percent;
+		// Округлили до 10 го порядка
+		res = Math.round(res * 100) / 100;
+	}
+	if (active.hasClass('letter')) {
+		format = 2;
+		print = 3.00;
+		setPercent(format, count);
+		// По формуле
+		res = ((paper + print) * coefficient) / format;
+		// Округлили до 10 го порядка
+		res = Math.round(res * 100) / 100;
+		// Умножили на количество
+		res = res * count;
+		// Округлили до 10 го порядка
+		res = Math.round(res * 100) / 100;
+		// Прибавляем процент
+		res = (res / 100) * percent;
+		// Округлили до 10 го порядка
+		res = Math.round(res * 100) / 100;
+	}
+
+	if (res.toString() === 'NaN' || res === 0) {
+		resCalc.html('<em class="red">Введите кол-во</em>');
+		active.find('.input_calc').val('').focus();
+	} else {
+		resCalc.text(`${res} руб`);
+	}
+});
+
+// Добавим title для option в selectric
+calcWrapper.find('.selectric-items li').each(function (i, el) {
+	var $el = $(el);
+	$el.attr('title', $el.text());
+});
+
+var mSelect = $('#js-multiple-select');
+mSelect.multipleSelect({
+	placeholder: 'Выберите товар',
+	selectAll: false,
+	minimumCountSelected: 5,
+	allSelected: 'Выбраны все услуги',
+	countSelected: 'выбрано #  из %',
+	onClick: function(e) {
+		$('#js-order-form').find('.ms-choice').removeClass('error_bg');
+	}
+});
+</script>
+</body>
+
+</html>
