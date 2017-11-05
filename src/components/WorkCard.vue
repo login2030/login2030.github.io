@@ -4,10 +4,13 @@
     	</v-card-media>
     	<v-card-title primary-title>
         	<div class="is-full-width">
-        		<h3 class="headline mb-0 is-short-text">
-					<v-icon v-if="dataMobile" white class="c-icon is_small">phone_iphone</v-icon>
-					{{dataHeader}}
-				</h3>
+				<v-tooltip top white>
+	        		<h3 class="headline mb-0 is-short-text" slot="activator">
+						<v-icon v-if="dataMobile" white class="c-icon is_small">phone_iphone</v-icon>
+						{{dataHeader}}
+					</h3>
+					<span>{{dataHeader}}</span>
+				</v-tooltip>
         		<div v-html="dataDesc" class="c-description"></div>
         	</div>
     	</v-card-title>

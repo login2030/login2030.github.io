@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=650">
+	<link rel="stylesheet" type="text/css" href="jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="lao-wp-hosting-calc.css">
+	<script src="jquery-1.11.3.js" type="text/javascript"></script>
+	<script src="jquery-ui.js" type="text/javascript"></script>
+	<script src="lao-wp-hosting-calc.js" type="text/javascript"></script>
+	<title>Калькулятор стоимости хостинга</title>
+</head>
+<body>
+	<div class="main_calc">
+		<div class="step step_1" style="display: block;">
+			<div>
+				<p>Размер оборудование, U</p>
+				<select id="size_comp"></select>
+			</div>
+			<div>
+				<p>Число блоков питания</p>
+				<select id="quantity_comp"></select>
+			</div>
+			<div>
+				<p>Мощность, <span class="wt"></span> Общая</p>
+				<p><span class="count_power"></span> | <span class="price_power"></span></p>
+				<div id="power_comp"></div>
+			</div>
+			<div>
+				<p>Доступ в интернет 1</p>
+				<select id="internet_1"></select>
+			</div>
+			<div>
+				<p>Доступ в интернет 2</p>
+				<select id="internet_2"></select>
+			</div>
+			<div>
+				<p>IP-адреса точек</p>
+				<p><span class="count_ip"></span> | <span class="set_ip"></span></p>
+				<div id="ip_points"></div>
+			</div>
+			<div>
+				<p>Гарантированное время ответа (SLA)</p>
+				<select id="response_time"></select>
+			</div>
+			<div>
+				<p>Период</p>
+				<select id="pay_period"></select>
+			</div>
+			<div class="output_tariff">
+				<div class="pay_setting">
+					<p>Плата за подключение:</p>
+					<p class="val"></p>
+				</div>
+				<div class="pay_mes">
+					<p>Плата за Месяц:</p>
+					<p class="val"></p>
+				</div>
+				<div class="pay_res">
+					<p>Общая итоговая цена</p>
+					<p class="val"></p>
+					<p class="discount"></p>
+				</div>
+				<button class="button_calc go_step2">Заказать</button>
+			</div>
+		</div> <!-- .step_1 -->
+		<div class="step step_2"  style="display: none;">
+			<div class="view_tariff">
+				<p class="pay">Период оплаты: <span></span></p>
+				<p class="size">Размер оборудования, U: <span></span></p>
+				<p class="count">Кол-во блоков питания: <span></span></p>
+				<p class="power">Мощность: <span></span></p>
+				<p class="internet1">Доступ в интернет 1: <span></span></p>
+				<p class="internet2">Доступ в интернет 2: <span></span></p>
+				<p class="ip">IP точек: <span></span></p>
+				<p class="time">Время ответа: <span></span></p>
+			<button class="button_calc go_step1">Редактировать</button>
+			</div>
+			<form action="#" id="send_data">
+				<p>Название компании</p>
+				<input class="pole" type="text" name="company" required>
+				<p>Имя и Фамилия</p>
+				<input class="pole" type="text" name="fio" required>
+				<p>Город</p>
+				<input class="pole" type="text" name="city" required>
+				<p>Email</p>
+				<input class="pole" type="email" name="email" required>
+				<p>Телефон</p>
+				<input class="pole" type="tel" name="tel" required>
+				<p>Комментарий</p>
+				<textarea class="pole" name="comment"></textarea>
+				<p>Как Вы узнали о нас</p>
+				<textarea class="pole" name="info"></textarea>
+				<button class="button_calc send_form">Отправить</button>
+			</form>
+		</div> <!-- .step_2 -->
+		<div class="step step_3" style="display: none;">
+			<div class="success">
+				<p>Ваше письмо отправлено!</p>
+				<p>Спасибо за заказ</p>
+			</div>
+		</div> <!-- .step_3 -->
+	</div>
+</body>
+</html>

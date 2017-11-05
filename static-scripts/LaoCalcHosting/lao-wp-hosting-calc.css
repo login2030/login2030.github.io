@@ -1,0 +1,125 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+input,
+button,
+select,
+textarea {
+  outline: none;
+}
+div,
+input,
+button,
+select,
+textarea {
+  box-sizing: border-box;
+}
+/* .reset */
+/* mixins */
+/* .mixins */
+/* common */
+button.button_calc {
+  padding: 0 20px 0 0;
+  width: 110px;
+  color: #fff;
+  text-align: center;
+  display: block;
+  height: 36px;
+  border: 1px solid #c0e1b1;
+  border-radius: 4px;
+  margin: 0 auto 14px;
+  text-transform: uppercase;
+  line-height: 36px;
+  background: #61b53c url(images/button_calc.png) no-repeat 90%;
+  cursor: pointer;
+}
+/* .common */
+.main_calc {
+  width: 600px;
+  margin: auto;
+  padding-top: 50px;
+}
+.main_calc .step_1 div {
+  margin: 10px 0;
+}
+.main_calc .step_1 .output_tariff {
+  margin-top: 20px;
+  background: #CCC;
+  padding: 20px;
+}
+.main_calc .step_2 .view_tariff {
+  margin-top: 20px;
+  background: #CCC;
+  padding: 20px;
+}
+.main_calc .step_2 button.go_step1 {
+  width: 160px;
+}
+.main_calc .step_2 button.send_form {
+  width: 120px;
+}
+.main_calc .step_2 form#send_data input,
+.main_calc .step_2 form#send_data textarea {
+  width: 100%;
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.main_calc .step_2 form#send_data input {
+  height: 35px;
+}
+.main_calc .step_2 form#send_data textarea {
+  height: 50px;
+  padding-top: 10px;
+  resize: both;
+}
+.main_calc .step_3 .success {
+  margin-top: 50px;
+  background: #7AD694;
+  padding: 20px;
+  border: 1px solid #123D1E;
+  border-radius: 5px;
+}
+.main_calc .step_3 .success p {
+  text-align: center;
+  color: #1C5B2E;
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  border: 1px solid #CCC;
+  background-color: #61b53c;
+  font-weight: normal;
+  color: #fff;
+}
+.ui-state-hover {
+  background-color: #FFF;
+  color: #666;
+}
+.ui-state-default .ui-icon {
+  background-image: url("images/select.png");
+}
+.ui-icon-triangle-1-s {
+  background-position: center center;
+  background-size: contain;
+}
+.ui-icon {
+  width: 26px;
+}
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  border: 1px solid #cccccc;
+  background-color: #FFF;
+  font-weight: normal;
+  color: #666;
+}
+.ui-widget {
+  font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+  font-size: 16px;
+}
