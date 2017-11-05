@@ -3,10 +3,10 @@
     	<v-card-media :src="dataImage" height="200px">
     	</v-card-media>
     	<v-card-title primary-title>
-        	<div>
-        		<h3 class="headline mb-0">
-					{{dataHeader}}
+        	<div class="is-full-width">
+        		<h3 class="headline mb-0 is-short-text">
 					<v-icon v-if="dataMobile" white class="c-icon is_small">phone_iphone</v-icon>
+					{{dataHeader}}
 				</h3>
         		<div v-html="dataDesc" class="c-description"></div>
         	</div>
