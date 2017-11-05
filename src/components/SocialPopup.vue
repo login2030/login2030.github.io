@@ -1,5 +1,5 @@
 <template>
-	<v-dialog v-model="socialPopup" max-width="350px">
+	<v-dialog v-model="socialPopup" max-width="350px" overlay=false>
 		<v-card> 
 			<v-card-title>
 				<h5 class="mb-0">В сети<v-icon color="green">fiber_manual_record</v-icon></h5>
