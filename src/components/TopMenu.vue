@@ -19,7 +19,7 @@
 			<v-btn @click="openSocialPopup" icon slot="activator">
 				<v-icon color="green darken2">battery_charging_full</v-icon>
 			</v-btn>
-			<span>Готов к работе!</span>
+			<span>Заряжен на работу!</span>
 		</v-tooltip>
 	</v-toolbar>
 </template>

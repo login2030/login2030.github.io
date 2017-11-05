@@ -70,6 +70,8 @@ export default {
 				name: 'less'
 			}, {
 				name: 'svg'
+			}, {
+				name: 'leaflet'
 			}]
 		}
 	}

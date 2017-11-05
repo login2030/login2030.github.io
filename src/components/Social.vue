@@ -2,9 +2,9 @@
 	<div>
 		<a v-for="item in social" :href="item.link" :key="item.id" :class="['c-social', {[parent + '__c-social']: parent}]" target="_blank">
 			<v-tooltip top :color="item.theme" :class="['c-social__item', 'is_' + item.id]">
-					<v-btn icon tag="span" slot="activator" color="grey lighten-3">
-						<v-icon :color="item.theme">{{item.icon}}</v-icon>
-					</v-btn>
+				<v-btn icon tag="span" slot="activator" color="grey lighten-3">
+					<v-icon :color="item.theme">{{item.icon}}</v-icon>
+				</v-btn>
 				<span>{{item.name}}</span>
 			</v-tooltip>
 		</a>
