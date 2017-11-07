@@ -30,4 +30,16 @@ export default [
 		desc: 'Просто калькулятор стоимости услуг хостинга',
 		staticPage: '/static-scripts/LaoCalcHosting'
 	},
+	{
+		img: 'sea-fight-demo',
+		header: 'Игра "Морской бой"',
+		desc: 'Простая реализация популярной настолькой игры',
+		staticPage: '/static-scripts/SeaFightDemo'
+	},
+	{
+		img: 'restaurant-menu-demo',
+		header: 'Калькулятор меню для ресторана',
+		desc: 'Калькулятор для удобного формирования онлайн заказа на сайте ресторана',
+		staticPage: '/static-scripts/RestaurantMenuDemo'
+	},
 ];

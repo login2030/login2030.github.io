@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=600">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Игра "Морской бой"</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<style>
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  min-width: 600px;
+  font-size: 18px;
+  margin: 0;
+}
+.c-wrapper {
+  zoom: 1;
+  width: 520px;
+  margin: auto;
+  padding: 25px 0;
+}
+.c-wrapper:before,
+.c-wrapper:after {
+  content: "";
+  display: table;
+}
+.c-wrapper:after {
+  clear: both;
+}
+.c-wrapper__header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.c-wrapper__content {
+  zoom: 1;
+}
+.c-wrapper__content:before,
+.c-wrapper__content:after {
+  content: "";
+  display: table;
+}
+.c-wrapper__content:after {
+  clear: both;
+}
+.c-wrapper__c-game:nth-child(1) {
+  float: left;
+}
+.c-wrapper__c-game:nth-child(2) {
+  float: right;
+}
+.c-game__header {
+  background-color: #1565c0;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 4px 4px 0 0;
+}
+.c-game__field {
+  zoom: 1;
+  box-sizing: border-box;
+  width: 252px;
+  height: 251px;
+  border-right: 1px solid #bbdefb;
+  border-bottom: 1px solid #bbdefb;
+  border-left: 1px solid #bbdefb;
+}
+.c-game__field:before,
+.c-game__field:after {
+  content: "";
+  display: table;
+}
+.c-game__field:after {
+  clear: both;
+}
+.c-game__row {
+  zoom: 1;
+}
+.c-game__row:before,
+.c-game__row:after {
+  content: "";
+  display: table;
+}
+.c-game__row:after {
+  clear: both;
+}
+.c-game__cell {
+  position: relative;
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+  border: 0.5px solid #bbdefb;
+  float: left;
+  cursor: pointer;
+}
+.c-game__cell.is-g:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  margin-top: -2px;
+  background-color: #333;
+}
+.c-game__cell.is-g.is-start:after {
+  left: auto;
+  right: 0;
+  width: 60%;
+  border-radius: 2px 0 0 2px;
+}
+.c-game__cell.is-g.is-end:after {
+  right: auto;
+  left: 0;
+  width: 60%;
+  border-radius: 0 2px 2px 0;
+}
+.c-game__cell.is-v:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  margin-left: -2px;
+  background-color: #333;
+}
+.c-game__cell.is-v.is-start:after {
+  top: auto;
+  bottom: 0;
+  height: 60%;
+  border-radius: 2px 2px 0 0;
+}
+.c-game__cell.is-v.is-end:after {
+  bottom: auto;
+  top: 0;
+  height: 60%;
+  border-radius: 0 0 2px 2px;
+}
+.c-game__cell.is-one:after {
+  width: 15px;
+  border-radius: 2px;
+  left: 50%;
+  margin-left: -7px;
+}
+.c-game.is-user .c-game__cell.is-ship {
+  background-color: #26c6da !important;
+}
+.c-game.is-user .c-game__cell.is-damage {
+  background-color: #f00 !important;
+}
+.c-game.is-user .c-game__cell.is-error {
+  background-color: #999;
+}
+.c-game.is-computer .c-game__cell:hover {
+  background-color: #26c6da;
+}
+.c-game.is-computer .c-game__cell.is-ship:after {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.c-game.is-computer .c-game__cell.is-damage {
+  background-color: #26c6da !important;
+}
+.c-game.is-computer .c-game__cell.is-damage:after {
+  opacity: 1;
+  -ms-filter: none;
+  -webkit-filter: none;
+          filter: none;
+}
+.c-game.is-computer .c-game__cell.is-error {
+  background-color: #f00;
+}
+.c-btn {
+  display: inline-block;
+  padding: 0 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: auto;
+  text-transform: uppercase;
+  background-color: #e57373;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+.c-btn.is-started {
+  background-color: #26c6da;
+}
+.c-btn.is-error {
+  background-color: #f00;
+}
+.c-btn.is-success {
+  background-color: #008000;
+}
+.c-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 999;
+}
+.c-popup__close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+.c-popup__content {
+  position: absolute;
+  z-index: 2;
+  top: 10%;
+  left: 50%;
+  margin-left: -125px;
+  width: 250px;
+}
+.c-popup__form-item {
+  display: block;
+  box-sizing: border-box;
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 18px;
+  text-align: center;
+}
+.c-popup__input {
+  border: 0;
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+.c-popup__input.is-error {
+  background-color: #e53935;
+  color: #fff;
+}
+.c-popup__button {
+  border: 0;
+  background-color: #e57373;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+	</style>
+</head>
+<body>
+	<div class="c-wrapper">
+		<div class="c-wrapper__header">
+			<div class="c-btn js-start js-msg-game">Начать</div>
+		</div>
+		<div class="c-wrapper__content">
+			<div class="c-wrapper__c-game c-game is-user">
+				<div class="c-game__header js-user-name">Имя пользователя</div>
+				<div class="c-game__field js-battle-field js-battle-field-user"></div>
+			</div>
+			<div class="c-wrapper__c-game c-game is-computer">
+				<div class="c-game__header">Компьютер</div>
+				<div class="c-game__field js-battle-field js-battle-field-computer"></div>
+			</div>
+		</div>
+	</div>
+	<form action="#" class="c-popup js-confirm">
+		<div class="c-popup__close js-confirm-close"></div>
+		<div class="c-popup__content">
+			<input type="text" placeholder="Ваше имя" class="c-popup__input c-popup__form-item js-confirm-input">
+			<button class="c-popup__button c-popup__form-item">Играть</button>
+		</div>
+	</form>
+	<script src="../header.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery/1.9.1/jquery.min.js"></script>
+	<script>
+		'use strict';
+		var _createClass=function(){function b(c,f){for(var k,h=0;h<f.length;h++)k=f[h],k.enumerable=k.enumerable||!1,k.configurable=!0,"value"in k&&(k.writable=!0),Object.defineProperty(c,k.key,k)}return function(c,f,h){return f&&b(c.prototype,f),h&&b(c,h),c}}();function _classCallCheck(b,c){if(!(b instanceof c))throw new TypeError("Cannot call a class as a function")}var app={w:$(window),d:$(document),popupForm:$(document.querySelector(".js-confirm")),btnStart:$(document.querySelector(".js-start"))},Form=function(){function b(c){_classCallCheck(this,b),this.form=c,this.input=c.find(".js-confirm-input"),this.errorClass="is-error"}return _createClass(b,[{key:"init",value:function(){var f=this;this.input.focus(function(){f.input.removeClass(f.errorClass)})}},{key:"validate",value:function(){return""===this.input.val()?(this.input.addClass(this.errorClass),!1):(this.input.removeClass(this.errorClass),!0)}},{key:"name",get:function(){return""===this.input.val()?void console.error("\u0418\u043C\u044F \u043D\u0435 \u0432\u0432\u0435\u0434\u0435\u043D\u043E!"):this.input.val()}}]),b}(),form=new Form(app.popupForm);form.init();var Game=function(){function b(){_classCallCheck(this,b),this.sizeField=9,this.flotilla=[{size:1,direct:"g",pos:[]},{size:1,direct:"g",pos:[]},{size:2,direct:"g",pos:[]},{size:2,direct:"v",pos:[]},{size:3,direct:"g",pos:[]},{size:3,direct:"v",pos:[]},{size:4,direct:"g",pos:[]},{size:4,direct:"v",pos:[]}],this.flotilla2=[{size:1,direct:"g",pos:[]},{size:1,direct:"g",pos:[]},{size:2,direct:"g",pos:[]},{size:2,direct:"v",pos:[]},{size:3,direct:"g",pos:[]},{size:3,direct:"v",pos:[]},{size:4,direct:"g",pos:[]},{size:4,direct:"v",pos:[]}],this.userNameField=$(document.querySelector(".js-user-name")),this.battleField=$(".js-battle-field"),this.fieldUser=$(document.querySelector(".js-battle-field-user")),this.fieldComp=$(document.querySelector(".js-battle-field-computer")),this.output=$(document.querySelector(".js-msg-game")),this.walk=!0}return _createClass(b,[{key:"generateShip",value:function(f){var k=this,l=[],m=0,n=0,o="";"g"===f.direct?(n=k.randomNum(0,k.sizeField-f.size+1),m=k.randomNum(0,k.sizeField)):(m=k.randomNum(0,k.sizeField-f.size+1),n=k.randomNum(0,k.sizeField));for(var p=0;p<f.size;p++)o="g"===f.direct?m+""+(n+p):m+p+""+n,l.push(o);return l}},{key:"drawCell",value:function(f,h,k,l){var m=f.find(".js-game-cell[data-coord="+h+"]");m.addClass("is-ship").html(),"g"===k?m.addClass("is-g"):m.addClass("is-v"),"start"===l&&m.addClass("is-start"),"end"===l&&m.addClass("is-end"),"one"===l&&m.addClass("is-one")}},{key:"drawShip",value:function(f,h){var k=this,l=f.direct;$.each(f.pos,function(m){var n;1===f.pos.length?n="one":(0===m&&(n="start"),m===f.pos.length-1&&(n="end")),k.drawCell(h,this,l,n)})}},{key:"generateFlotilla",value:function(f,h){var k=this;$.each(h,function(m){var n;do n=k.generateShip(this,f);while(k.crossing(n,h));h[m].pos=n})}},{key:"crossing",value:function(f,h){for(var l,k=0;k<h.length;k++){l=h[k];for(var m=0;m<f.length;m++)if(0<=l.pos.indexOf(f[m]))return!0}return!1}},{key:"msg",value:function(f){this.output.text(f)}},{key:"setUserName",value:function(f){this.userNameField.text(f)}},{key:"randomEl",value:function(f){return f[Math.floor(Math.random()*f.length)]}},{key:"randomNum",value:function(f,h){return f+Math.floor(Math.random()*(h+1-f))}},{key:"generateRow",value:function(f){return"<div class=\"c-game__row\">"+f+"</div>"}},{key:"generateCell",value:function(f){for(var h="",k=0;10>k;k++)h+="<div class=\"c-game__cell js-game-cell\" data-coord=\""+f+k+"\"></div>";return h}},{key:"userTurn",value:function(f){var h=this;if(!this.walk)return!1;f.hasClass("is-ship")?(f.addClass("is-damage").removeClass("js-game-cell"),this.msg("\u0412\u0430\u0448 \u0445\u043E\u0434"),this.walk=!0):(f.addClass("is-error").removeClass("js-game-cell"),this.msg("\u041A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440 \u0445\u043E\u0434\u0438\u0442"),this.walk=!1,setTimeout(function(){h.compTurn()},1e3));var k=this.fieldComp.find(".is-ship").length,l=this.fieldComp.find(".is-damage").length;if(l>=k)return this.msg("\u0412\u044B \u0432\u044B\u0438\u0433\u0440\u0430\u043B\u0438! \u041D\u043E\u0432\u0430\u044F \u0438\u0433\u0440\u0430?"),this.output.addClass("is-success"),this.walk=!1,!1}},{key:"compTurn",value:function(){var f=this.fieldUser.find(".is-ship").length,h=this.fieldUser.find(".is-damage").length;if(h>=f)return this.msg("\u0412\u044B \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u043B\u0438! \u041D\u043E\u0432\u0430\u044F \u0438\u0433\u0440\u0430?"),this.output.addClass("is-error"),this.walk=!1,!1;var k=$(this.randomEl(this.fieldUser.find(".js-game-cell").toArray()));k.hasClass("is-ship")?(k.addClass("is-damage"),this.msg("\u041A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440 \u0445\u043E\u0434\u0438\u0442"),k.removeClass("js-game-cell").addClass("is-damage"),this.compTurn()):(k.removeClass("js-game-cell"),this.msg("\u0412\u0430\u0448 \u0445\u043E\u0434"),k.addClass("is-error"),this.walk=!0)}},{key:"init",value:function(){var f=this;f.output.removeClass("is-error is-success");for(var h="",k=0;10>k;k++)h+=this.generateRow(this.generateCell(k));f.battleField.html(h),f.generateFlotilla(f.fieldUser,f.flotilla),f.generateFlotilla(f.fieldComp,f.flotilla2),$.each(f.flotilla,function(){f.drawShip(this,f.fieldUser)}),$.each(f.flotilla2,function(){f.drawShip(this,f.fieldComp)}),this.walk=!0}}]),b}(),game=new Game;app.w.click(function(b){var c=$(b.target);c.hasClass("js-start")&&app.popupForm.fadeIn(),c.hasClass("js-reload-game")&&(game.init(),game.msg("\u0412\u0430\u0448 \u0445\u043E\u0434")),c.hasClass("js-confirm-close")&&app.popupForm.fadeOut()}),app.d.submit(function(b){var c=$(b.target);c.hasClass("js-confirm")&&(b.preventDefault(),form.validate()&&(app.popupForm.fadeOut(),app.btnStart.removeClass("js-start").addClass("is-started  js-reload-game"),game.init(),game.setUserName(form.name),game.msg("\u0412\u0430\u0448 \u0445\u043E\u0434")))}),$(".js-battle-field-computer").click(function(b){var c=$(b.target);c.hasClass("js-game-cell")&&game.userTurn(c)});
+	</script>
+</body>
+</html>

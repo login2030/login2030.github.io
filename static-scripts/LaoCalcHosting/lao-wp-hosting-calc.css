@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
 }
+html, body {min-width: 650px;}
 input,
 button,
 select,
