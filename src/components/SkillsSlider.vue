@@ -59,6 +59,8 @@ export default {
 			}, {
 				name: 'vuetify'
 			}, {
+				name: 'materializecss'
+			}, {
 				name: 'webpack'
 			}, {
 				name: 'gulp'
@@ -72,6 +74,8 @@ export default {
 				name: 'svg'
 			}, {
 				name: 'leaflet'
+			}, {
+				name: 'bem'
 			}]
 		}
 	}
