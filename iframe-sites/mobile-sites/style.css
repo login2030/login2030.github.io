@@ -1,0 +1,29 @@
+html, body {background-color: #333333; margin: 0; padding: 0;}
+.c-mobile-iframe {
+	box-sizing: border-box;
+	position: relative;
+	background-image: url('mobile-overlay.png');
+	background-position: 0 0;
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 600px;
+	padding: 83px 0 0 27px;
+	margin-right: auto;
+	margin-bottom: 50px;
+	margin-left: auto;
+}
+.c-mobile-iframe__inner {
+	position: relative;
+	background-color: #333333;
+	width: 246px;
+	height: 436px;
+	overflow: hidden;
+}
+.c-mobile-iframe__view {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 265px;
+	height: 456px;
+}

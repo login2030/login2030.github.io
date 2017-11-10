@@ -1,3 +1,4 @@
+import selectDeviceUrl from './../helpers/selectDeviceUrl.js';
 export default [
 	{
 		img: 'ufakomfort',
@@ -46,7 +47,11 @@ export default [
 		img: 'mriofitness',
 		header: 'RIO',
 		desc: 'Мобильная версия сайта фитнес-клуба "RIO" г. Новый Уренгой',
-		link: 'http://m.riofitness.ru/'
+		link: selectDeviceUrl({
+			desktop: '/iframe-sites/mobile-sites/mRiofitness',
+			tablet: 'http://m.riofitness.ru/',
+			mobile: 'http://m.riofitness.ru/'
+		})
 	},
 	{
 		img: 'diloreto',
