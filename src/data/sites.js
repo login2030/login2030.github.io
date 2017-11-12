@@ -1,5 +1,5 @@
-import selectDeviceUrl from './../helpers/selectDeviceUrl.js';
-// http не отображается на https
+import selectDeviceUrl from '../helpers/selectDeviceUrl.js';
+import newWindow from '../helpers/getNewWindow.js';
 export default [
 	{
 		img: 'ufakomfort',
@@ -48,7 +48,11 @@ export default [
 		img: 'mriofitness',
 		header: 'RIO',
 		desc: 'Мобильная версия сайта фитнес-клуба "RIO" г. Новый Уренгой',
-		link: 'http://m.riofitness.ru/'
+		link: selectDeviceUrl({
+			desktopUrl: newWindow({url:'http://m.riofitness.ru/', width: '400', height: '700'}),
+			tabletUrl: 'http://m.riofitness.ru/',
+			mobileUrl: 'http://m.riofitness.ru/'
+		})
 	},
 	{
 		img: 'diloreto',

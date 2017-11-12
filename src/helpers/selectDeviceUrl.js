@@ -1,12 +1,12 @@
-export default function({desktop, tablet, mobile}) {
+export default function({desktopUrl, tabletUrl, mobileUrl}) {
 	if (device.desktop()) {
-		return desktop;
+		return desktopUrl;
 	}
 	if (device.tablet()) {
-		return tablet;
+		return tabletUrl;
 	}
 	if (device.mobile()) {
-		return mobile;
+		return mobileUrl;
 	}
 	return false;
 };
