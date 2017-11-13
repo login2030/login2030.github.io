@@ -13,6 +13,12 @@ export default [
 		staticPage: '/static-scripts/AkcentufaCalcPolygraphy'
 	},
 	{
+		img: 'notes-for-wordpress',
+		header: 'Интересные заметки для сайта',
+		desc: 'Wordpress плагин для вывода на сайте интересных заметок',
+		staticPage: '/static-scripts/NotesForWordpress'
+	},
+	{
 		img: 'martial-arts-interactive-tour',
 		header: 'Интерактивная карта фитнес центра',
 		desc: 'Интерактивная карта фитнес центра "Маршал Артс" с возможностью посмотреть все залы в формате фото и 360',

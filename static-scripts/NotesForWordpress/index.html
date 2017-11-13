@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Интересные заметки для сайта</title>
+	<style>
+		html, body {margin: 0;padding: 0;}
+		.plugin-wrapper {
+			max-width: 500px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		.know {
+			padding: 27px 27px 30px;
+			background: url(bg-know-1.png) 0 0;
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			position: relative;
+			width: auto;
+		}
+		.know:before {
+			content: '';
+			background: url(icon-know-1.png) 0 0 no-repeat;
+			width: 60px;
+			height: 60px;
+			position: absolute;
+			top: -10px;
+			right: 12px;
+		}
+		.know .c-login2030-note__title {
+			color: #fff;
+			font: 20px/18px 'Elektra Text Probold', sans-serif;
+			margin-bottom: 20px;
+		}
+		.know .text {
+			color: #fff;
+			font: 15px/18px 'Tachoma', sans-serif;
+			padding: 0 20px 0 27px;
+			position: relative;
+		}
+		.know .text p {
+			color: #fff;
+			font: 15px/18px 'Tachoma', sans-serif;
+			margin-bottom: 0;
+		}
+		.know .text:after {
+			content: '';
+			background: url(brackets-1.png) 0 0 no-repeat;
+			height: 11px;
+			width: 15px;
+			top: 0;
+			left: 0;
+			position: absolute;
+		}
+		.know .text:before {
+			content: '';
+			background: url(brackets-1.png) -15px 0 no-repeat;
+			height: 11px;
+			width: 15px;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+		}
+		.wrap-more-know {
+			padding: 0 25px;
+		}
+		 .wrap-know-ajax.loading {
+			opacity: 0.5;
+		}
+		.wrap-know-ajax {
+			-webkit-transition: 0.5s;
+			-o-transition: 0.5s;
+			-moz-transition: 0.5s;
+			transition: 0.5s;
+		}
+		.wrap-more-know .load-more {
+			background: #53516B;
+			display: block;
+			border: 1px solid #fff;
+			width: 200px;
+			font: 12px/30px 'Elektra Text Probold', sans-serif;
+			color: #fff;
+			text-align: center;
+			text-decoration: none;
+			margin: 20px auto 0;
+			padding: 0 10px;
+			-webkit-transition: 0.5s;
+			-o-transition: 0.5s;
+			-moz-transition: 0.5s;
+			transition: 0.5s;
+			cursor: pointer;
+		}
+		.wrap-more-know .load-more:hover {
+			background: rgba(0,0,0,0.3);
+		}
+		.c-login2030-note {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		.c-login2030-note__text {
+			-webkit-transition: all 0.2s ease-out;
+			transition: all 0.2s ease-out;
+			opacity: 1;
+		}
+		.is_hide {
+			-webkit-transition: all 0.2s ease-out;
+			transition: all 0.2s ease-out;
+			opacity: 0.3;
+		}
+	</style>
+</head>
+<body>
+	<script src="../header.js"></script>
+<div class="plugin-wrapper">
+	<div class="c-login2030-note js-login2030-note">
+		<div class="know widget">
+			<div class="c-login2030-note__title">Знаете ли вы, что</div>
+				<div class="wrap-know-ajax">
+					<div class="text">
+						<p class="c-login2030-note__text js-login2030-note-text"></p>
+					</div>
+				<div class="wrap-more-know">
+					<div class="load-more loadmore_know js-login2030-note-btn">Показать еще один факт</div></div>
+			</div>
+		</div>
+	</div>
+</div>
+	<script src="script.js"></script>
+</body>
+</html>
