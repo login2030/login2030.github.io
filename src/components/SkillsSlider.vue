@@ -65,6 +65,8 @@ export default {
 			}, {
 				name: 'gulp'
 			}, {
+				name: 'f7'
+			}, {
 				name: 'stylus'
 			}, {
 				name: 'sass'

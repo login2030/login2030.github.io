@@ -40,6 +40,7 @@
 									</v-tooltip>
 								</a>
 								<rabbits data-title="Основная работа"></rabbits>
+								<dojo data-title="Источник знаний"></dojo>
 							</div>
 						</small>
 					</blockquote>
@@ -50,9 +51,11 @@
 </template>
 <script>
 import Rabbits from './RabbitsLogo.vue';
+import Dojo from './CodedojoLogo.vue';
 export default {
 	components: {
-		Rabbits
+		Rabbits,
+		Dojo
 	}
 }
 </script>

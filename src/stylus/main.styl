@@ -71,6 +71,14 @@
 		overflow hidden
 		text-overflow ellipsis
 		cursor default
+	&-short-text-no-mobile
+		white-space nowrap
+		overflow hidden
+		text-overflow ellipsis
+		cursor default
+		@media (max-width 600px)
+			white-space normal
+			overflow visible
 	&-full-width
 		width 100%
 	&-color-white

@@ -4,7 +4,7 @@
     	</v-card-media>
     	<v-card-title primary-title>
         	<div class="is-full-width">
-        		<h3 class="headline mb-0 is-short-text">
+        		<h3 class="headline mb-0 is-short-text-no-mobile">
 					<v-icon v-if="dataMobile" white class="c-icon is_small">phone_iphone</v-icon>
 					{{dataHeader}}
 				</h3>
