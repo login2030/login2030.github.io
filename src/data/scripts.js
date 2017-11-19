@@ -1,5 +1,11 @@
 export default [
 	{
+		img: 'store-automation-calculator',
+		header: 'Калькулятор для автоматизации бизнеса',
+		desc: 'Калькулятор в интернет-магазин по продаже оборудования и программ для автоматизации бизнеса',
+		staticPage: '/static-scripts/StoreAutomationCalculator'
+	},
+	{
 		img: 'riofitness-svg-map',
 		header: 'SVG Карта клуба RIO',
 		desc: 'Интерактивная карта фитнес-клуба RIO',
