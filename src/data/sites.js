@@ -2,6 +2,12 @@ import selectDeviceUrl from '../helpers/selectDeviceUrl.js';
 import newWindow from '../helpers/getNewWindow.js';
 export default [
 	{
+		img: 'gorobzor',
+		header: 'Горобзор - новостной портал',
+		desc: 'Сайт для новостного портала, г.Уфа',
+		link: 'http://www.gorobzor.ru/'
+	},
+	{
 		img: 'ufakomfort',
 		header: 'Окна Комфорт',
 		desc: 'Сайт по изготовлению и установке пластиковых окон "Окна Комфорт" г. Уфа',
