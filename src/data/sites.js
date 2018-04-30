@@ -2,6 +2,18 @@ import selectDeviceUrl from '../helpers/selectDeviceUrl.js';
 import newWindow from '../helpers/getNewWindow.js';
 export default [
 	{
+		img: 'ekipazas',
+		header: 'UAB "Ekipažas"',
+		desc: 'Сайт для компании такси и пассажирских перевозок г. Вильнюс, Литва',
+		link: 'http://www.ekipazastaksi.lt/?lang=ru'
+	},
+	{
+		img: 'svoidom',
+		header: 'Свой дом',
+		desc: 'Свой дом - сайт с каталогом проектов домов из дерева',
+		link: 'http://svoidom.2rabbits.ru/'
+	},
+	{
 		img: 'gorobzor',
 		header: 'Горобзор - новостной портал',
 		desc: 'Сайт для новостного портала, г.Уфа',
@@ -17,7 +29,7 @@ export default [
 		img: 'dvernoi-standart',
 		header: 'Дверной стандарт',
 		desc: 'Сайт входных дверей производства "Дверной стандарт" г.Пермь',
-		link: 'http://xn--e1aohf5d.xn--80aaehce2a5achuhiof.xn--p1ai/'
+		link: 'http://dvernoistandart.2rabbits.ru/'
 	},
 	{
 		img: 'akcentufa',
