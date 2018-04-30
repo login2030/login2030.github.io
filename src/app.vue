@@ -32,18 +32,18 @@ import SocialPopup from "./components/SocialPopup.vue";
 import SkillsSlider from "./components/SkillsSlider.vue";
 
 export default {
-  components: {
-    TopMenu,
+	components: {
+		TopMenu,
 	BottomFooter,
 	Intro,
 	Scripts,
 	Sites,
 	SocialPopup,
 	SkillsSlider
-  },
-  data() {
-    return {};
-  },
-  computed: {}
+	},
+	data() {
+		return {};
+	},
+	computed: {}
 };
 </script>
